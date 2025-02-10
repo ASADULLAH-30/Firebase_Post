@@ -1,0 +1,125 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext");
+
+/* Global Reset and Basic Styling */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Body with Background Image */
+body {
+    background-image: url("../bk2.jpg"); /* Add your image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Overlay for Background Image */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for better readability */
+    z-index: -1;
+}
+
+/* Container Styling */
+.container {
+    background-color: rgba(44, 44, 44, 0.8); /* Semi-transparent container */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Search Input and Button Styling */
+#searchInput {
+    width: 70%;
+    padding: 10px;
+    border: 2px solid #444;
+    border-radius: 10px;
+    background-color: rgba(26, 26, 26, 0.8); /* Semi-transparent input */
+    color: #ffffff;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #ff9800;
+    box-shadow: 0 0 8px rgba(255, 152, 0, 0.6);
+}
+
+#searchButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff9800;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#searchButton:hover {
+    background-color: #e68a00;
+    transform: scale(1.05);
+}
+
+/* User Results Styling */
+#userResults {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+    justify-content: center;
+    margin-top: 30px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.user-card {
+    background-color: rgba(68, 68, 68, 0.8); /* Semi-transparent card */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.user-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.user-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ff9800; /* Highlight username */
+}
+
+.user-card p {
+    font-size: 1rem;
+    color: #ffffff;
+}

@@ -1,0 +1,277 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext");
+
+/* Global Reset and Basic Styling */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Body with Background Image */
+body {
+    background-image: url("../bk2.jpg"); /* Add your image URL */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Overlay for Background Image */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for better readability */
+    z-index: -1;
+}
+
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent navbar */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+}
+
+.navbar p {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+    color: #ff9800; /* Highlight email with orange color */
+}
+
+.navbar button {
+    background-color: #ff9800;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar button:hover {
+    background-color: #e68a00;
+    transform: scale(1.05);
+}
+
+/* Creative Logout Button and Email Arrangement */
+.navbar .user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between email and logout button */
+}
+
+.navbar .user-info p {
+    position: relative;
+    padding: 5px 10px;
+    background-color: rgba(255, 152, 0, 0.2); /* Semi-transparent background for email */
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar .user-info p:hover {
+    background-color: rgba(255, 152, 0, 0.4); /* Darker on hover */
+}
+
+.navbar #logout-btn {
+    background-color: #ff4444;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar #logout-btn:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}
+
+/* Container Styling */
+.container {
+    margin-top: 100px; /* To avoid overlap with navbar */
+    background-color: rgba(44, 44, 44, 0.8); /* Semi-transparent container */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #ff9800;
+    margin-bottom: 20px;
+}
+
+/* Post Styling */
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #444;
+    background-color: rgba(26, 26, 26, 0.8); /* Semi-transparent textarea */
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 20px;
+    resize: none;
+}
+
+#post-btn {
+    background-color: #4CAF50;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#post-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Posts List Styling */
+#posts-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#posts-list li {
+    background-color: rgba(68, 68, 68, 0.8); /* Semi-transparent posts */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#posts-list li:hover {
+    transform: translateY(-5px);
+}
+
+/* Post Content and Actions */
+.post-content {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #ffffff;
+   
+}
+.post-content:focus {
+    outline: none;
+    border-color: #ff9800;
+    box-shadow: 0 0 8px rgba(255, 152, 0, 0.6);
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    justify-content: flex-end; /* Align buttons to the right */
+}
+
+.post-actions button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+}
+
+.post-actions button:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Button Styles */
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: black;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.mx-2 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.profile-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+    font-family: 'Poppins', sans-serif;
+}

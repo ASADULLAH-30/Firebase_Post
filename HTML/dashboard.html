@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../CSS/dstyles.css"> <!-- Link to CSS file -->
+</head>
+<body>
+    
+    <div class="navbar">
+        <h2>Welcome, <span id="user-name">User</span></h2>
+        <div class="user-info">
+            <p>Email: <span id="user-email">user@example.com</span></p>
+            <button id="logout-btn">Logout</button>
+        </div>
+        <button id="searchPageButton">Search Users</button>
+    </div>
+
+    <div class="container">
+        <h2>Dashboard</h2>
+        <img id="user-photo" src="default-avatar.png" alt="Profile Picture" class="avatar">
+
+        <h3>Create a Post</h3>
+        <textarea id="post-content" placeholder="Write something..."></textarea>
+        <button id="post-btn">Post</button>
+
+        <!-- <h3>Posts</h3> -->
+        <ul id="posts-list">
+            <!-- Example Post (for reference) -->
+            <li>
+                <div class="post-content">This is a sample post.</div>
+                <div class="post-actions">
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    
+
+    <div id="postContainer"></div>
+
+    <script>
+        document.getElementById("searchPageButton").addEventListener("click", function() {
+            window.location.href = "users.html";
+        });
+    </script>
+
+    <script src="../JS/dashboard.js" type="module"></script>
+</body>
+</html>
