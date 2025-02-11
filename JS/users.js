@@ -1,13 +1,13 @@
-// ✅ Firebase Import 
+// Firebase Import 
 import { db } from "./firebase.js";
 import { collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-firestore.js";
 
-// ✅ DOM Elements 
+//  DOM Elements 
 const searchInput = document.getElementById("searchInput");
 const searchButton = document.getElementById("searchButton");
 const userResults = document.getElementById("userResults");
 
-// ✅ Function to Search Users in Firebase  
+//  Function to Search Users in Firebase  
 async function searchUser() {
     userResults.innerHTML = ""; // Clear previous results
     const searchValue = searchInput.value.trim().toLowerCase();
@@ -18,7 +18,7 @@ async function searchUser() {
     }
 
     try {
-        // ✅ Query Firestore for matching users  
+        //  Query Firestore for matching users  
         const usersRef = collection(db, "users");
         const q = query(usersRef, where("username", "==", searchValue));
         const querySnapshot = await getDocs(q);
@@ -33,7 +33,7 @@ async function searchUser() {
             const userDiv = document.createElement("div");
             userDiv.classList.add("user");
 
-            // ✅ Fetch User Posts  
+            //  Fetch User Posts  
             const postsRef = collection(db, "posts");
             const postQuery = query(postsRef, where("userId", "==", doc.id));
             const postSnapshot = await getDocs(postQuery);
@@ -65,6 +65,6 @@ async function searchUser() {
     }
 }
 
-// ✅ Event Listener  
+//  Event Listener  
 searchButton.addEventListener("click", searchUser);
 console.log("Found Users:", querySnapshot.docs.map(doc => doc.data()));
