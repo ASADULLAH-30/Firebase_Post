@@ -1,7 +1,7 @@
 //  Import Firebase SDK (Modules)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-auth.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-firestore.js";
+import { getFirestore, query, where , collection, getDocs} from "https://www.gstatic.com/firebasejs/11.3.0/firebase-firestore.js";
 
 //  Firebase Configuration
 const firebaseConfig = {
@@ -20,4 +20,4 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 //  Export Firebase Instances
-export { auth, db };
+export { auth, db , query, where, collection, getDocs};
