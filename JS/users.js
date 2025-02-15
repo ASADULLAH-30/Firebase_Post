@@ -1,15 +1,15 @@
-// Firebase Import 
+// Firestore Import  
 import { db } from "./firebase.js";
 import { collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-firestore.js";
 
-//  DOM Elements 
+// DOM Elements  
 const searchInput = document.getElementById("searchInput");
 const searchButton = document.getElementById("searchButton");
 const userResults = document.getElementById("userResults");
 
-//  Function to Search Users in Firebase  
+// Function to Search Users in Firestore  
 async function searchUser() {
-    userResults.innerHTML = ""; // Clear previous results
+    userResults.innerHTML = ""; // Clear previous results  
     const searchValue = searchInput.value.trim().toLowerCase();
 
     if (!searchValue) {
@@ -18,9 +18,9 @@ async function searchUser() {
     }
 
     try {
-        //  Query Firestore for matching users  
+        // Query Firestore for matching users  
         const usersRef = collection(db, "users");
-        const q = query(usersRef, where("username", "==", searchValue));
+        const q = query(usersRef, where("name", "==", searchValue));
         const querySnapshot = await getDocs(q);
 
         if (querySnapshot.empty) {
@@ -28,16 +28,16 @@ async function searchUser() {
             return;
         }
 
-        for (const doc of querySnapshot.docs) {
+        querySnapshot.forEach(async (doc) => {
             const userData = doc.data();
             const userDiv = document.createElement("div");
             userDiv.classList.add("user");
 
-            //  Fetch User Posts  
+            // Fetch User Posts  
             const postsRef = collection(db, "posts");
             const postQuery = query(postsRef, where("userId", "==", doc.id));
             const postSnapshot = await getDocs(postQuery);
-            
+
             let postsHTML = "";
             postSnapshot.forEach((postDoc) => {
                 const post = postDoc.data();
@@ -48,16 +48,12 @@ async function searchUser() {
             });
 
             userDiv.innerHTML = `
-                <h3>${userData.username}</h3>
+                <h3>${userData.name}</h3>
                 <p>${userData.email}</p>
-                <div class="user-posts">
-                    <h4>Posts:</h4>
-                    ${postsHTML || "<p>No posts found.</p>"}
-                </div>
             `;
 
             userResults.appendChild(userDiv);
-        }
+        });
 
     } catch (error) {
         console.error("Error searching user:", error);
@@ -65,6 +61,5 @@ async function searchUser() {
     }
 }
 
-//  Event Listener  
+// Event Listener  
 searchButton.addEventListener("click", searchUser);
-console.log("Found Users:", querySnapshot.docs.map(doc => doc.data()));
